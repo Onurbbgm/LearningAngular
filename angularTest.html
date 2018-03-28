@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
+<style>
+        @keyframes myChange {
+            from {
+                height: 100px;
+            } to {
+                height: 0;
+            }
+        }
+        div {
+            background-color: lightblue;
+        }
+        div.ng-hide {
+            animation: 0.5s myChange;
+        }
+</style>
+<body ng-app="myApp"  >
+<h1>Pulp Fiction Page</h1>
+<h2>{{color}}</h2>
+
+Hide the DIV: <input type="checkbox" ng-model="myCheck">
+
+<div ng-controller="myCtrl" ng-hide="myCheck" >
+       
+    <p>This will change:</p>
+     <h1>{{myHeader}}</h1>
+     <select ng-model="selectedOption" ng-options="x.toDo for x in options "></select>
+     <h3>{{selectedOption.response}}</h3>
+    <p>My first expression: {{ 5 + 5 }}</p>     
+    {{firstName + " "+ lastName}}
+    <br />
+    Full Name: {{fullName()}}
+    <br/>
+    <ul>
+            <li ng-repeat="x in names | orderBy: 'country'">
+              {{ x.name + ', ' + x.country }}
+            </li>
+    </ul>
+    <h2>{{color}}</h2>
+    <ul>
+         <li ng-repeat="x in myData">
+            {{ x.Name + ', ' + x.Country }}
+         </li>
+            
+    </ul>
+    <button ng-click="myFunction()">What!</button>
+    <div ng-show="showMe">
+        <h1>BANG!</h1>
+        <h2>You got shot!</h2>
+    </div>
+</div>
+
+<h2>{{color}}</h2>
+<test></test>
+
+<div ng-hide="myCheck">
+</div>
+</body>
+<script src="myApp.js"></script>
+<script src="myCtrl.js"></script>
+<!--<script src="myCtrl2.js"></script>-->
+</html>
